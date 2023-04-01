@@ -3,6 +3,9 @@
  * @author Ms. Namasivayam
  * @version 03/04/2022
  */
+// SOPHIE HO 3/31/2023
+// The isValidCell is coded by Sophie.
+// This method checks if a given cell is valid or not.
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -146,7 +149,28 @@ public class Maze {
      * @return boolean true/false
      */
     public boolean isValidCell(int row, int col) {
-        // TODO: Complete this function
+        // If the cell is bigger than the maze boundaries, it is out of bounds and not valid.
+        if(row >= numRows || col >= numCols)
+        {
+            // Set it as invalid
+            return false;
+        }
+        // If the cell's row and col are less than 0, it is out of bounds and not valid.
+        if(row < 0 || col < 0)
+        {
+            return false;
+        }
+        // If the cell has been explored already, it does not need to be explored again, so it is invalid.
+        if(mazeGrid[row][col].isExplored())
+        {
+            return false;
+        }
+        // If the cell is a wall, it is invalid because walls solutions must go around walls, not through them.
+        if(mazeGrid[row][col].isWall())
+        {
+            return false;
+        }
+        // Otherwise, the cell is valid.
         return true;
     }
 }
