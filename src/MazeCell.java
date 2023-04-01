@@ -1,3 +1,4 @@
+// SOPHIE HO 3/31/23
 /**
  * A class that represents a single cell of the maze.
  * @author Ms. Namasivayam
